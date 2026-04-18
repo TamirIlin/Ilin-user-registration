@@ -24,7 +24,7 @@ public class UserController {
     @PostMapping("/register")
     public String registerUser(@ModelAttribute("user") User user) {
         if (userRepository.existsByEmail(user.getEmail())) {
-            return "redirect:/register?error"; // Если email занят
+            return "redirect:/register?error";
         }
         user.setCreatedAt(LocalDateTime.now());
         userRepository.save(user);
