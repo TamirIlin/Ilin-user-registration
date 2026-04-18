@@ -1,0 +1,18 @@
+<form th:action="@{/register}" th:object="${user}" method="post">
+    <div>
+        <label>Имя:</label>
+        <input type="text" th:field="*{name}" required />
+    </div>
+    <div>
+        <label>Email:</label>
+        <input type="email" th:field="*{email}" required />
+    </div>
+    <button type="submit">Зарегистрировать</button>
+</form>
+
+<div th:if="${param.success}" style="color: green;">
+    Пользователь успешно зарегистрирован!
+</div>
+<div th:if="${param.error}" style="color: red;">
+    Ошибка: Email уже используется!
+</div>
